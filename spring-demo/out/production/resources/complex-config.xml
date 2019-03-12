@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Question 5
+        Create Class Complex as follows: class complex {    List list;
+
+           Set set;
+
+          Map map;
+
+          } Initialize all the instance variables of the complex class using Spring XML.
+           Give bean name as complexBean.-->
+    <bean id="complexBean" class="demo.Complex">
+        <property name="list">
+            <list>
+                <value>10</value>
+                <value>20</value>
+                <value>20</value>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>30</value>
+                <value>40</value>
+                <value>30</value>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="1" value="one"/>
+                <entry key="2" value="two"/>
+            </map>
+        </property>
+    </bean>
+</beans>

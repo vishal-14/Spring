@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+    <context:component-scan base-package="demo"/>
+    <!--Question 1
+    Create a class Database with 2 instance variables port and name.
+    Configure Database class bean in spring container through Spring XML.
+    Initialize instance variables using setter method.-->
+    <bean id="db" class="demo.DatabaseDB">
+        <property name="port" value="8080"/>
+        <property name="name" value="localhost"/>
+    </bean>
+
+    <!--Question 3:
+    Configure Tea and ExpressTea classes beans in Spring XML.
+    Create a bean with the name teaRestaurant of type Restaurant which inject
+    Tea object as dependency using setter method.    -->
+    <bean id="tea" class="demo.Tea"/>
+    <bean name="teaRestaurant" class="demo.Restaurant">
+        <property name="hotDrink" ref="tea"/>
+    </bean>
+    <!--Try inner bean with expressTeaRestaurant.-->
+    <bean name="expressTeaRestaurant" class="demo.Restaurant">
+        <property name="hotDrink">
+            <bean id="expressTea" class="demo.ExpressTea"/>
+        </property>
+    </bean>
+
+    <!--Question 6-->
+
+    <bean id="res" class="demo.Restaurant" autowire="byName"/>
+    <bean id="res1" class="demo.Restaurant" autowire="byType"/>
+    <bean id="res3" class="demo.Restaurant" autowire="constructor">
+        <property name="HotDrink" ref="tea"/>
+    </bean>
+    <bean id="hotDrink" class="demo.Tea" primary="true"/>
+
+    <!--Question 7 Add scope prototype-->
+    <bean name="teaRestaurant1 " class="demo.Restaurant" scope="prototype">
+        <property name="hotDrink" ref="tea"/>
+    </bean>
+
+</beans>

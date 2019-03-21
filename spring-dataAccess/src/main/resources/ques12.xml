@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <context:annotation-config/>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/springDemo"/>
+        <property name="username" value="root"/>
+        <property name="password" value="Vishal@1234"/>
+    </bean>
+
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <bean id="dao1" class="question12.required.UserDao1"/>
+    <bean id="dao2" class="question12.required.UserDao2"/>
+    <bean id="dao3" class="question12.requires_new.UserDao1"/>
+    <bean id="dao4" class="question12.requires_new.UserDao2"/>
+    <bean id="dao5" class="question12.nested.UserDao1"/>
+    <bean id="dao6" class="question12.nested.UserDao2"/>
+    <bean id="dao7" class="question12.mandatory.UserDao1"/>
+    <bean id="dao8" class="question12.mandatory.UserDao2"/>
+    <bean id="dao9" class="question12.never.UserDao1"/>
+    <bean id="dao10" class="question12.never.UserDao2"/>
+    <bean id="dao11" class="question12.not_supported.UserDao1"/>
+    <bean id="dao12" class="question12.not_supported.UserDao2"/>
+    <bean id="dao13" class="question12.supports.UserDao1"/>
+    <bean id="dao14" class="question12.supports.UserDao2"/>
+    <tx:annotation-driven transaction-manager="txManager"/>
+
+
+</beans>

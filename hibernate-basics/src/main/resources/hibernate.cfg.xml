@@ -28,5 +28,18 @@
         <mapping class="demo.question9.Author9B"/>
         <mapping class="demo.question10_11.Author"/>
         <mapping class="demo.question12_13.Author"/>
+        <mapping class="demo.question14To17.AuthorA"/>
+        <mapping class="demo.question14To17.AuthorB"/>
+        <mapping class="demo.question14To17.AuthorC"/>
+        <mapping class="demo.question14To17.AuthorD"/>
+        <mapping class="demo.question14To17.AuthorE"/>
+        <mapping class="demo.question14To17.AuthorF"/>
+        <mapping class="demo.question14To17.BookA"/>
+        <mapping class="demo.question14To17.BookB"/>
+        <mapping class="demo.question14To17.BookC"/>
+        <mapping class="demo.question14To17.BookD"/>
+        <mapping class="demo.question14To17.BookE"/>
+        <mapping class="demo.question14To17.BookF"/>
+
     </session-factory>
 </hibernate-configuration>

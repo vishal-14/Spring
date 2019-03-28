@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <title>Employee Registration Form</title>
+    <script th:src="@{/js/showLoader.js}"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#LoadingImage").hide();
+            $("#registrationForm").on('submit', function () {
+                var data = $("#registrationForm").serialize();
+                showImage(data);
+                return false;
+            })
+            $(document).ajaxStart(function () {
+                $("#LoadingImage").show();
+            })
+        })
+    </script>
+</head>
+<body>
+<form id="registrationForm" method="post">
+    First Name :<input type="text" id="firstName" name="firstName">
+    <input type="submit" value="Submit">
+
+</form>
+<p id="response"></p>
+<div id="LoadingImage">
+    <img src="/images/loader.gif"/>
+</div>
+
+</body>
+</html>
